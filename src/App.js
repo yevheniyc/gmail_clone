@@ -34,7 +34,7 @@ function App() {
 
   return (
     <Router>
-      {!user ? (
+      {user ? (
         <Login />
       ) : (
         <div className="app">
