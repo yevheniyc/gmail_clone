@@ -21,6 +21,7 @@ function App() {
     auth.onAuthStateChanged((user) => {
       if (user) {
         // the user is logged in -> this will use a cookie!!!
+        // for not it is turned off
         dispatch(
           login({
             displayName: user.displayName,
