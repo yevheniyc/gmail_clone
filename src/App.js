@@ -8,7 +8,6 @@ import SendMail from "./SendMail";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSendMessageIsOpen } from "./features/mailSlice";
 import { login, selectUser } from "./features/userSlice";
-import Login from "./Login";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 
@@ -35,27 +34,24 @@ function App() {
 
   return (
     <Router>
-      {user ? (
-        <Login />
-      ) : (
-        <div className="app">
-          <Header />
-          <div className="app__body">
-            <Sidebar />
+      <div className="app">
+        <Header />
+        <div className="app__body">
+          <Sidebar />
 
-            <Switch>
-              <Route path="/mail">
-                <Mail />
-              </Route>
-              <Route path="/">
-                <EmailList />
-              </Route>
-            </Switch>
-          </div>
-
-          {sendMessageIsOpen && <SendMail />}
+          <Switch>
+            <Route path="/mail">
+              <Mail />
+            </Route>
+            <Route path="/">
+              <EmailList />
+            </Route>
+          </Switch>
         </div>
-      )}
+
+        {sendMessageIsOpen && <SendMail />}
+        {user && ""}
+      </div>
     </Router>
   );
 }
